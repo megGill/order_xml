@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:rotation="90"
+        android:src="@drawable/shape_triangle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/order_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:text="Order"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/close_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:text="Close"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@id/order_text_view"/>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/price_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_text_view">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardview_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp">
+
+            <TextView
+                android:id="@+id/subtotal_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Subtotal"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/cardview_constraint_layout"
+                app:layout_constraintTop_toTopOf="@+id/cardview_constraint_layout" />
+
+            <TextView
+                android:id="@+id/subtotal_value_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|right"
+                android:padding="8dp"
+                android:text="$49.50"
+                app:layout_constraintBaseline_toBaselineOf="@+id/subtotal_text_view"
+                app:layout_constraintEnd_toEndOf="@+id/cardview_constraint_layout"
+                app:layout_constraintTop_toTopOf="@+id/cardview_constraint_layout" />
+
+            <TextView
+                android:id="@+id/tax_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Tax &amp; Fees"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/cardview_constraint_layout"
+                app:layout_constraintTop_toBottomOf="@+id/subtotal_text_view" />
+
+            <TextView
+                android:id="@+id/tax_value_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:padding="8dp"
+                android:text="$2.75"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tax_text_view"
+                app:layout_constraintEnd_toEndOf="@+id/cardview_constraint_layout"
+                app:layout_constraintTop_toBottomOf="@+id/subtotal_value_textView" />
+
+            <TextView
+                android:id="@+id/delivery_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Delivery"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/cardview_constraint_layout"
+                app:layout_constraintTop_toBottomOf="@+id/tax_text_view" />
+
+            <TextView
+                android:id="@+id/delivery_value_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:padding="8dp"
+                android:text="Free"
+                app:layout_constraintBaseline_toBaselineOf="@+id/delivery_text_view"
+                app:layout_constraintEnd_toEndOf="@+id/cardview_constraint_layout"
+                app:layout_constraintTop_toBottomOf="@+id/tax_value_text_view" />
+
+            <TextView
+                android:id="@+id/total_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:text="Total"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/cardview_constraint_layout"
+                app:layout_constraintTop_toBottomOf="@+id/delivery_text_view" />
+
+            <TextView
+                android:id="@+id/total_value_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="$52.25"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/total_text_view"
+                app:layout_constraintEnd_toEndOf="@+id/cardview_constraint_layout"
+                app:layout_constraintTop_toBottomOf="@+id/delivery_value_text_view" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/food_items_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/price_card_view">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/food_items_cardview_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp">
+
+            <ImageView
+                android:id="@+id/crispy_chicken_san_image_view"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/crispy_chicken_san"
+                app:layout_constraintStart_toStartOf="@id/food_items_cardview_constraint_layout"
+                app:layout_constraintTop_toTopOf="@id/food_items_cardview_constraint_layout"/>
+
+            <TextView
+                android:id="@+id/crispy_chicken_san_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/crispy_chicken_san_image_view"
+                app:layout_constraintEnd_toEndOf="@id/food_items_cardview_constraint_layout"
+                app:layout_constraintTop_toTopOf="@id/food_items_cardview_constraint_layout"
+                android:text="Crispy Chicken San"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:paddingStart="8dp"/>
+
+            <TextView
+                android:id="@+id/crispy_chicken_san_description_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                app:layout_constraintStart_toEndOf="@id/crispy_chicken_san_image_view"
+                app:layout_constraintEnd_toEndOf="@id/food_items_cardview_constraint_layout"
+                app:layout_constraintTop_toBottomOf="@id/crispy_chicken_san_text_view"
+                android:text="Premium, crispy white meat chicken"
+                />
+            <TextView
+                android:id="@+id/crispy_chicken_san_price_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/crispy_chicken_san_image_view"
+                app:layout_constraintEnd_toEndOf="@id/food_items_cardview_constraint_layout"
+                app:layout_constraintBottom_toBottomOf="@id/crispy_chicken_san_image_view"
+                android:text="$29.50"
+                android:textStyle="bold"
+                android:textColor="@color/darkish_pink"
+                android:paddingStart="8dp"
+                />
+            <ImageView
+                android:id="@+id/prawn_and_chicken_roll_image_view"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/prawn_and_chicken_roll"
+                android:layout_margin="8dp"
+                app:layout_constraintStart_toStartOf="@id/food_items_cardview_constraint_layout"
+                app:layout_constraintTop_toBottomOf="@id/crispy_chicken_san_image_view"/>
+
+            <TextView
+                android:id="@+id/prawn_and_chicken_roll_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/prawn_and_chicken_roll_image_view"
+                app:layout_constraintEnd_toEndOf="@id/food_items_cardview_constraint_layout"
+                app:layout_constraintTop_toTopOf="@id/prawn_and_chicken_roll_image_view"
+                android:text="Prawn &amp; Chicken Roll"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:paddingStart="8dp"/>
+
+            <TextView
+                android:id="@+id/prawn_and_chicken_roll_description_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                app:layout_constraintStart_toEndOf="@id/prawn_and_chicken_roll_image_view"
+                app:layout_constraintEnd_toEndOf="@id/food_items_cardview_constraint_layout"
+                app:layout_constraintTop_toBottomOf="@id/prawn_and_chicken_roll_text_view"
+                android:text="Filled rice paper rolls"
+                />
+            <TextView
+                android:id="@+id/prawn_and_chicken_roll_price_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/prawn_and_chicken_roll_image_view"
+                app:layout_constraintEnd_toEndOf="@id/food_items_cardview_constraint_layout"
+                app:layout_constraintBottom_toBottomOf="@id/prawn_and_chicken_roll_image_view"
+                android:text="$9.50"
+                android:textStyle="bold"
+                android:textColor="@color/darkish_pink"
+                android:paddingStart="8dp"
+                />
+            <ImageView
+                android:id="@+id/salad_fritters_image_view"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/salad_fritters"
+                android:layout_margin="8dp"
+                app:layout_constraintStart_toStartOf="@id/food_items_cardview_constraint_layout"
+                app:layout_constraintTop_toBottomOf="@id/braised_fish_head_image_view"/>
+
+            <TextView
+                android:id="@+id/salad_fritters_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/salad_fritters_image_view"
+                app:layout_constraintEnd_toEndOf="@id/food_items_cardview_constraint_layout"
+                app:layout_constraintTop_toTopOf="@id/salad_fritters_image_view"
+                android:text="Salad Fritters"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:paddingStart="8dp"/>
+
+            <TextView
+                android:id="@+id/salad_fritters_description_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                app:layout_constraintStart_toEndOf="@id/salad_fritters_image_view"
+                app:layout_constraintEnd_toEndOf="@id/food_items_cardview_constraint_layout"
+                app:layout_constraintTop_toBottomOf="@id/salad_fritters_text_view"
+                android:text="Deep fried veggies"
+                />
+            <TextView
+                android:id="@+id/salad_fritters_price_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/salad_fritters_image_view"
+                app:layout_constraintEnd_toEndOf="@id/food_items_cardview_constraint_layout"
+                app:layout_constraintTop_toBottomOf="@id/salad_fritters_description_tv"
+                android:text="$5.00"
+                android:textStyle="bold"
+                android:textColor="@color/darkish_pink"
+                android:paddingStart="8dp"
+                />
+
+            <ImageView
+                android:id="@+id/braised_fish_head_image_view"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/braised_fish_head"
+                android:layout_margin="8dp"
+                app:layout_constraintStart_toStartOf="@id/food_items_cardview_constraint_layout"
+                app:layout_constraintTop_toBottomOf="@id/prawn_and_chicken_roll_image_view"/>
+
+            <TextView
+                android:id="@+id/braised_fish_head_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/braised_fish_head_image_view"
+                app:layout_constraintEnd_toEndOf="@id/food_items_cardview_constraint_layout"
+                app:layout_constraintTop_toTopOf="@id/braised_fish_head_image_view"
+                android:text="Braised Fish Head"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:paddingStart="8dp"/>
+
+            <TextView
+                android:id="@+id/braised_fish_head_description_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                app:layout_constraintStart_toEndOf="@id/braised_fish_head_image_view"
+                app:layout_constraintEnd_toEndOf="@id/food_items_cardview_constraint_layout"
+                app:layout_constraintTop_toBottomOf="@id/braised_fish_head_text_view"
+                android:text="Chinese style stewed fish head"
+                />
+            <TextView
+                android:id="@+id/braised_fish_head_price_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/braised_fish_head_image_view"
+                app:layout_constraintEnd_toEndOf="@id/food_items_cardview_constraint_layout"
+                app:layout_constraintBottom_toBottomOf="@id/braised_fish_head_image_view"
+                android:text="$15.00"
+                android:textStyle="bold"
+                android:textColor="@color/darkish_pink"
+                android:paddingStart="8dp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <Button
+        android:id="@+id/checkout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Checkout"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:background="@drawable/rounded_cornersa"
+        android:textColor="@color/white"
+        android:layout_margin="24dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
